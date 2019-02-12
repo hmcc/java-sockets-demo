@@ -16,9 +16,9 @@ import org.slf4j.LoggerFactory;
  */
 public class App {
 
-    public static int DEFAULT_PORT = 5000;
-    public static String IO_PROPERTY = "org.problemchimp.io";
-    public static int SPIN_SPEED = 10;
+    public static final int DEFAULT_PORT = 5000;
+    public static final String IO_PROPERTY = "org.problemchimp.io";
+    public static final int SPIN_SPEED = 10;
 
     private static Logger logger = LoggerFactory.getLogger(App.class);
 
@@ -38,7 +38,8 @@ public class App {
 	    threads.forEach(t -> t.start());
 
 	} catch (Exception e) {
-	    e.printStackTrace();
+	    logger.error(e.toString(), e);
+	    shutdown();
 	}
     }
 
